@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   
+    <link href="demologin.css" rel="stylesheet">
+    <script type="text/javascript">
+    
+      function validate(){
+        var uname=document.getElementById("inp1");
+        var mail=document.getElementById("inp2");
+        var passw=document.getElementById("inp3");
+        var regm = /^([a-zA-Z0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+        var regu=/^[A-Za-z]{7,20}$/;
+        var up=/([A-Z])+/;
+        var low=/([a-z])+/;
+        var num=/([0-9]+)/;
+        var spec=/([_\.\*\+])+/;
+        if((regu.test(uname.value))==false)
+        {
+         
+          document.getElementById("inp1").style.border="5px solid red";
+          document.getElementById("lb1").style.visibility="visible";
+
+          return false;
+          
+        }
+        else{
+          document.getElementById("inp1").style.border="5px solid black";
+          document.getElementById("lb1").style.visibility="hidden";
+
+        }
+       if((regm.test(mail.value))==false){
+          
+          document.getElementById("inp2").style.border="5px solid red";
+          document.getElementById("lb3").style.visibility="visible";
+          return false;
+      }
+      else{
+        document.getElementById("inp2").style.border="5px solid black";
+          document.getElementById("lb3").style.visibility="hidden";
+      }
+      if(((up.test(passw.value))&&(num.test(passw.value))&&(low.test(passw.value))&&(spec.test(passw.value)))==false)
+        {
+          
+          document.getElementById("inp3").style.border="5px solid red";
+          document.getElementById("lb2").style.visibility="visible";
+          return false;
+        }
+        else{ 
+         document.getElementById("inp3").style.border="5px solid black";
+          document.getElementById("lb2").style.visibility="hidden";
+          return true;
+        }
+        
+        
+      }
+    </script>
+   
+  </head>
+  <body>
+   
+    <form align="center" onsubmit="return validate()" action="miniproject.html">
+      <input class ="inp" id="inp1" type="text" name="uname" placeholder="Enter Username" ><br>
+      <label id="lb1" style="color:red;visibility:hidden;font-weight:bold;">Must contain atleast 7 letters and atmost 20 letters</label>
+      <br><br>
+      <input class ="inp" id="inp2" type="text" name="email" placeholder="Enter MailId" ><br>
+       <label id="lb3" style="color:red;visibility:hidden;font-weight:bold;">Please enter valid mail id</label>
+      <br><br>
+      <input class ="inp" id="inp3" type="text"  placeholder="Enter password" ><br>
+       <label id="lb2" style="color:red;visibility:hidden;font-weight:bold;">password must contain atleast contain one special character,uppercase letter ,lower caseletter and a digit</label>
+      <br><br>
+      
+      <button type="submit" onclick="validate()">Login</button>
+   <a href="demoregister.html" style="color:black;text-decoration:none;text-align: left; font-size: 20px;  "><p>create an account</p></a>
+    </form>
+  
+  </body>
+</html>
